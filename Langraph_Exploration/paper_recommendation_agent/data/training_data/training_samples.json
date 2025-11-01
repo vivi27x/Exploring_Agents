@@ -1,0 +1,65 @@
+[
+  {
+    "user_interests": "natural language processing",
+    "paper_title": "Advanced Methods in Deep Learning for Natural Language Processing",
+    "paper_abstract": "We present novel deep learning architectures for NLP tasks including text classification and generation.",
+    "paper_categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "relevance_score": 0.2,
+    "justification": "Limited relevance to interests"
+  },
+  {
+    "user_interests": "computer vision",
+    "paper_title": "Advanced Methods in Deep Learning for Natural Language Processing",
+    "paper_abstract": "We present novel deep learning architectures for NLP tasks including text classification and generation.",
+    "paper_categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "relevance_score": 0.2,
+    "justification": "Limited relevance to interests"
+  },
+  {
+    "user_interests": "deep learning",
+    "paper_title": "Advanced Methods in Deep Learning for Natural Language Processing",
+    "paper_abstract": "We present novel deep learning architectures for NLP tasks including text classification and generation.",
+    "paper_categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "relevance_score": 0.8,
+    "justification": "Paper discusses deep learning techniques"
+  },
+  {
+    "user_interests": "natural language processing",
+    "paper_title": "Computer Vision Approaches for Object Detection in Real Time",
+    "paper_abstract": "This paper explores efficient convolutional networks for real-time object detection in video streams.",
+    "paper_categories": [
+      "cs.CV"
+    ],
+    "relevance_score": 0.2,
+    "justification": "Limited relevance to interests"
+  },
+  {
+    "user_interests": "computer vision",
+    "paper_title": "Computer Vision Approaches for Object Detection in Real Time",
+    "paper_abstract": "This paper explores efficient convolutional networks for real-time object detection in video streams.",
+    "paper_categories": [
+      "cs.CV"
+    ],
+    "relevance_score": 0.2,
+    "justification": "Limited relevance to interests"
+  },
+  {
+    "user_interests": "deep learning",
+    "paper_title": "Computer Vision Approaches for Object Detection in Real Time",
+    "paper_abstract": "This paper explores efficient convolutional networks for real-time object detection in video streams.",
+    "paper_categories": [
+      "cs.CV"
+    ],
+    "relevance_score": 0.2,
+    "justification": "Limited relevance to interests"
+  }
+]

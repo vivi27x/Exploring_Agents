@@ -2,8 +2,16 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 import json
 import os
-from utils.helpers import load_config
 
+import sys
+import os
+
+# Add the project root directory to the Python path
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, project_root)
+print(f"Added to Python path: {project_root}")
+
+from utils.helpers import load_config
 def initialize_vector_db():
     """Initialize ChromaDB with paper data"""
     config = load_config()
@@ -34,7 +42,7 @@ def initialize_vector_db():
         documents.append(doc_text)
         metadatas.append({
             'title': paper['title'],
-            'categories': paper['categories'],
+            'categories': ', '.join(paper['categories']),  # Join categories into a single string
             'published': paper['published'],
             'pdf_url': paper.get('pdf_url', '')
         })

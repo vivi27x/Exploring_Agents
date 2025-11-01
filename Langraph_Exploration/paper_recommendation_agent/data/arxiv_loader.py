@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 from typing import List, Dict
 import time
-from utils.helpers import load_config
+# from utils.helpers import load_config
 
 def fetch_arxiv_papers(categories: List[str] = None, max_results: int = 1000) -> List[Dict]:
     """Fetch papers from Arxiv API"""
