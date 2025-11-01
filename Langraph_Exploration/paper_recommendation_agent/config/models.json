@@ -1,0 +1,15 @@
+{
+  "free_models": {
+    "small": {
+      "mistral": "mistralai/Mistral-7B-Instruct-v0.2",
+      "llama": "meta-llama/Llama-2-7b-chat-hf",
+      "zephyr": "HuggingFaceH4/zephyr-7b-beta",
+      "openchat": "openchat/openchat-3.5-0106"
+    },
+    "medium": {
+      "mixtral": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "llama2_13b": "meta-llama/Llama-2-13b-chat-hf"
+    }
+  },
+  "fallback_models": ["mistralai/Mistral-7B-Instruct-v0.2", "HuggingFaceH4/zephyr-7b-beta"]
+}

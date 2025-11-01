@@ -1,12 +1,15 @@
-import ollama
 import logging
 from typing import List, Dict
+from utils.helpers import load_config
+from utils.hf_client import HuggingFaceClient
 
 logger = logging.getLogger(__name__)
 
 class JustificationAgent:
-    def __init__(self, model_name: str = "llama3"):
-        self.model_name = model_name
+    def __init__(self, model_name: str = None):
+        self.config = load_config()
+        self.model_name = model_name or self.config['models']['justification']
+        self.client = HuggingFaceClient()
     
     def format_recommendations(self, user_query: str, analyzed_papers: List[Dict]) -> str:
         """Format recommendations with detailed justifications"""
@@ -17,9 +20,9 @@ class JustificationAgent:
             # Take top papers
             top_papers = sorted_papers[:10]
             
-            # Generate detailed justifications for top 3 papers
-            for i, paper in enumerate(top_papers[:3]):
-                if paper["relevance_score"] > 0.5:  # Only for reasonably relevant papers
+            # Generate detailed justifications for top papers
+            for i, paper in enumerate(top_papers[:3]):  # Limit to 3 to save API calls
+                if paper["relevance_score"] > 0.5:
                     detailed_justification = self._generate_detailed_justification(user_query, paper)
                     paper["detailed_justification"] = detailed_justification
             
@@ -30,7 +33,7 @@ class JustificationAgent:
             return self._create_fallback_output(analyzed_papers)
     
     def _generate_detailed_justification(self, user_query: str, paper: Dict) -> str:
-        """Generate detailed justification using LLM"""
+        """Generate detailed justification using HF API"""
         prompt = f"""
         User research interests: "{user_query}"
         
@@ -45,11 +48,8 @@ class JustificationAgent:
         """
         
         try:
-            response = ollama.chat(
-                model=self.model_name,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            return response['message']['content']
+            response = self.client.generate_text(self.model_name, prompt, max_tokens=150)
+            return response.strip() if response else paper["justification"]
         except Exception as e:
             logger.error(f"Error generating detailed justification: {e}")
             return paper["justification"]
@@ -80,10 +80,14 @@ class JustificationAgent:
         """Create fallback output format"""
         sorted_papers = sorted(papers, key=lambda x: x["relevance_score"], reverse=True)[:10]
         
-        output = ["# Paper Recommendations (Fallback Mode)\n"]
+        output = ["# Paper Recommendations\n"]
         for i, paper_data in enumerate(sorted_papers):
             paper = paper_data['paper']
-            output.append(f"{i+1}. **{paper['title']}** (Score: {paper_data['relevance_score']:.3f})")
+            score = paper_data['relevance_score']
+            relevance_level = "Highly relevant" if score > 0.7 else "Moderately relevant" if score > 0.5 else "Somewhat relevant"
+            
+            output.append(f"{i+1}. **{paper['title']}** ({relevance_level}, Score: {score:.3f})")
             output.append(f"   {paper_data['justification']}")
+            output.append("")
         
         return "\n".join(output)

@@ -1,13 +1,16 @@
-import ollama
 import json
 import logging
 from typing import Dict
+from utils.helpers import load_config
+from utils.hf_client import HuggingFaceClient
 
 logger = logging.getLogger(__name__)
 
 class PlannerAgent:
-    def __init__(self, model_name: str = "mistral"):
-        self.model_name = model_name
+    def __init__(self, model_name: str = None):
+        self.config = load_config()
+        self.model_name = model_name or self.config['models']['planner']
+        self.client = HuggingFaceClient()
     
     def plan(self, user_query: str) -> Dict:
         """Create a search plan based on user interests"""
@@ -25,32 +28,44 @@ class PlannerAgent:
         }}
         
         Be precise and extract the main technical concepts.
+        Return ONLY the JSON object, no additional text.
         JSON:
         """
         
         try:
-            response = ollama.chat(
-                model=self.model_name,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            plan_text = response['message']['content']
+            response = self.client.generate_text(self.model_name, prompt, max_tokens=256)
+            
+            if not response:
+                logger.warning("Empty response from HF API, using fallback")
+                return self._create_fallback_plan(user_query)
             
             # Extract JSON from response
-            json_start = plan_text.find('{')
-            json_end = plan_text.rfind('}') + 1
-            json_str = plan_text[json_start:json_end]
+            json_start = response.find('{')
+            json_end = response.rfind('}') + 1
             
-            plan = json.loads(json_str)
-            logger.info(f"Generated plan: {plan}")
-            return plan
+            if json_start >= 0 and json_end > json_start:
+                json_str = response[json_start:json_end]
+                plan = json.loads(json_str)
+                logger.info(f"Generated plan: {plan}")
+                return plan
+            else:
+                logger.warning("No JSON found in response, using fallback")
+                return self._create_fallback_plan(user_query)
             
         except Exception as e:
             logger.error(f"Error in planner: {e}")
-            # Fallback plan
-            return {
-                "domains": ["cs.AI", "cs.LG", "cs.CL"],
-                "key_concepts": user_query.split()[:5],
-                "recency_preference": "last 3 years",
-                "depth": "comprehensive",
-                "specific_requirements": []
-            }
+            return self._create_fallback_plan(user_query)
+    
+    def _create_fallback_plan(self, user_query: str) -> Dict:
+        """Create fallback plan when API fails"""
+        # Simple keyword extraction
+        words = user_query.lower().split()
+        technical_terms = [word for word in words if len(word) > 3][:5]
+        
+        return {
+            "domains": ["cs.AI", "cs.LG", "cs.CL"],
+            "key_concepts": technical_terms,
+            "recency_preference": "last 3 years",
+            "depth": "comprehensive",
+            "specific_requirements": []
+        }

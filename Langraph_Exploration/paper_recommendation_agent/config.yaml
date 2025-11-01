@@ -1,7 +1,12 @@
 models:
-  planner: "mistral"
+  planner: "mistralai/Mistral-7B-Instruct-v0.2"
   embedding: "all-MiniLM-L6-v2"
   analysis: "./models/trained_models/relevance_model"
+  justification: "mistralai/Mistral-7B-Instruct-v0.2"
+
+huggingface:
+  api_key: "your_huggingface_token_here"  # Get free token from huggingface.co
+  use_api: true
 
 paths:
   data_dir: "./data"

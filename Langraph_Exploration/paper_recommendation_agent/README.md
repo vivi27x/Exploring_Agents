@@ -13,6 +13,15 @@ An AI agent that automates finding relevant academic papers based on your resear
 
 ## Quick Start
 
-1. **Install dependencies:**
-```bash
-pip install -r requirements.txt
+## Free Cloud Setup (No Local Models)
+
+### Option 1: Hugging Face Inference API (Recommended)
+
+1. **Get free API token:**
+   - Create account at [huggingface.co](https://huggingface.co)
+   - Go to Settings → Access Tokens
+   - Create new token with "read" access
+
+2. **Setup environment:**
+   ```bash
+   python setup_environment.py
