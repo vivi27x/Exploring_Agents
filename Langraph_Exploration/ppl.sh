@@ -1,0 +1,37 @@
+#!/bin/bash
+
+mkdir -p paper_recommendation_agent/agents
+touch paper_recommendation_agent/agents/__init__.py
+touch paper_recommendation_agent/agents/planner_agent.py
+touch paper_recommendation_agent/agents/search_agent.py
+touch paper_recommendation_agent/agents/analysis_agent.py
+touch paper_recommendation_agent/agents/justification_agent.py
+
+mkdir -p paper_recommendation_agent/models/trained_models
+touch paper_recommendation_agent/models/__init__.py
+touch paper_recommendation_agent/models/fine_tune_relevance.py
+
+mkdir -p paper_recommendation_agent/data/training_data
+mkdir -p paper_recommendation_agent/data/vector_db
+touch paper_recommendation_agent/data/__init__.py
+touch paper_recommendation_agent/data/arxiv_loader.py
+touch paper_recommendation_agent/data/training_data/sample_training_data.json
+touch paper_recommendation_agent/data/training_data/generate_training_data.py
+touch paper_recommendation_agent/data/vector_db/init_vector_db.py
+
+mkdir -p paper_recommendation_agent/evaluation
+touch paper_recommendation_agent/evaluation/__init__.py
+touch paper_recommendation_agent/evaluation/evaluate_agent.py
+
+mkdir -p paper_recommendation_agent/web_app
+touch paper_recommendation_agent/web_app/__init__.py
+touch paper_recommendation_agent/web_app/app.py
+
+mkdir -p paper_recommendation_agent/utils
+touch paper_recommendation_agent/utils/__init__.py
+touch paper_recommendation_agent/utils/helpers.py
+
+touch paper_recommendation_agent/requirements.txt
+touch paper_recommendation_agent/main.py
+touch paper_recommendation_agent/config.yaml
+touch paper_recommendation_agent/README.md
