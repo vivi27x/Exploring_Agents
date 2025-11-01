@@ -2,3 +2,6 @@
 .env
 */.env
 __pycache__/
+*/venv/
+./paper_recommendation_agent/config.yaml
+*/config.yaml
