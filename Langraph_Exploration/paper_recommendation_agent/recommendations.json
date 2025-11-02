@@ -1,0 +1,158 @@
+{
+  "query": "reinforcement learning",
+  "plan": {
+    "domains": [
+      "cs.AI",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "key_concepts": [
+      "Q-learning",
+      "Deep Q-Networks",
+      "Policy Gradient",
+      "Actor-Critic Methods",
+      "Markov Decision Processes",
+      "Exploration-Exploitation Trade-off"
+    ],
+    "recency_preference": "last 5 years",
+    "depth": "recent advances",
+    "specific_requirements": [
+      "applications in robotics",
+      "algorithms for continuous action spaces"
+    ]
+  },
+  "recommendations": [
+    {
+      "paper": {
+        "id": "2510.21110v1",
+        "title": "Confounding Robust Deep Reinforcement Learning: A Causal Approach",
+        "abstract": "Confounding Robust Deep Reinforcement Learning: A Causal Approach A key task in Artificial Intelligence is learning effective policies for\ncontrolling agents in unknown environments to optimize performance measures.\nOff-policy learning methods, like Q-learning, allow learners to make optimal\ndecisions based on past experiences. This paper studies off-policy learning\nfrom biased data in complex and high-dimensional domains where \\emph{unobserved\nconfounding} cannot be ruled out a priori. Building on the well-celebrated Deep\nQ-Network (DQN), we propose a novel d",
+        "categories": "cs.AI",
+        "published": "2025-10-24T02:58:01Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.21110v1",
+        "search_score": 0.43015289306640625
+      },
+      "relevance_score": 0.43015289306640625,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.23424v1",
+        "title": "Causal Deep Q Network",
+        "abstract": "Causal Deep Q Network Deep Q Networks (DQN) have shown remarkable success in various reinforcement\nlearning tasks. However, their reliance on associative learning often leads to\nthe acquisition of spurious correlations, hindering their problem-solving\ncapabilities. In this paper, we introduce a novel approach to integrate causal\nprinciples into DQNs, leveraging the PEACE (Probabilistic Easy vAriational\nCausal Effect) formula for estimating causal effects. By incorporating causal\nreasoning during training, our propose",
+        "categories": "cs.AI",
+        "published": "2025-10-27T15:28:17Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.23424v1",
+        "search_score": 0.22601866722106934
+      },
+      "relevance_score": 0.22601866722106934,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.26646v1",
+        "title": "Hybrid DQN-TD3 Reinforcement Learning for Autonomous Navigation in\n  Dynamic Environments",
+        "abstract": "Hybrid DQN-TD3 Reinforcement Learning for Autonomous Navigation in\n  Dynamic Environments This paper presents a hierarchical path-planning and control framework that\ncombines a high-level Deep Q-Network (DQN) for discrete sub-goal selection with\na low-level Twin Delayed Deep Deterministic Policy Gradient (TD3) controller\nfor continuous actuation. The high-level module selects behaviors and\nsub-goals; the low-level module executes smooth velocity commands. We design a\npractical reward shaping scheme (direction, distance, obstacle avoidance,\naction smoothness, collision penalty, time p",
+        "categories": "cs.RO, cs.AI, cs.LG",
+        "published": "2025-10-30T16:12:01Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.26646v1",
+        "search_score": 0.19692862033843994
+      },
+      "relevance_score": 0.19692862033843994,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.25529v1",
+        "title": "Off-policy Reinforcement Learning with Model-based Exploration\n  Augmentation",
+        "abstract": "Off-policy Reinforcement Learning with Model-based Exploration\n  Augmentation Exploration is fundamental to reinforcement learning (RL), as it determines\nhow effectively an agent discovers and exploits the underlying structure of its\nenvironment to achieve optimal performance. Existing exploration methods\ngenerally fall into two categories: active exploration and passive exploration.\nThe former introduces stochasticity into the policy but struggles in\nhigh-dimensional environments, while the latter adaptively prioritizes\ntransitions in the replay buffer to enhance explora",
+        "categories": "cs.AI",
+        "published": "2025-10-29T13:53:52Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.25529v1",
+        "search_score": 0.17619144916534424
+      },
+      "relevance_score": 0.17619144916534424,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.21888v1",
+        "title": "Computational Hardness of Reinforcement Learning with Partial\n  $q^\u03c0$-Realizability",
+        "abstract": "Computational Hardness of Reinforcement Learning with Partial\n  $q^\u03c0$-Realizability This paper investigates the computational complexity of reinforcement\nlearning in a novel linear function approximation regime, termed partial\n$q^{\\pi}$-realizability. In this framework, the objective is to learn an\n$\\epsilon$-optimal policy with respect to a predefined policy set $\\Pi$, under\nthe assumption that all value functions for policies in $\\Pi$ are linearly\nrealizable. The assumptions of this framework are weaker than those in\n$q^{\\pi}$-realizability but stronger than those in $q^*$-re",
+        "categories": "cs.AI, cs.CC, cs.LG, 68Q17 (Primary) 68T05, 68T42 (Secondary), F.2.2; I.2.6; I.2.8",
+        "published": "2025-10-24T01:18:49Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.21888v1",
+        "search_score": 0.17398685216903687
+      },
+      "relevance_score": 0.17398685216903687,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.24482v1",
+        "title": "Sample-efficient and Scalable Exploration in Continuous-Time RL",
+        "abstract": "Sample-efficient and Scalable Exploration in Continuous-Time RL Reinforcement learning algorithms are typically designed for discrete-time\ndynamics, even though the underlying real-world control systems are often\ncontinuous in time. In this paper, we study the problem of continuous-time\nreinforcement learning, where the unknown system dynamics are represented using\nnonlinear ordinary differential equations (ODEs). We leverage probabilistic\nmodels, such as Gaussian processes and Bayesian neural networks, to learn an\nuncertainty-aware model of the underlying O",
+        "categories": "cs.LG, cs.AI, cs.RO",
+        "published": "2025-10-28T14:54:12Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.24482v1",
+        "search_score": 0.13225388526916504
+      },
+      "relevance_score": 0.13225388526916504,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.26575v1",
+        "title": "InfoFlow: Reinforcing Search Agent Via Reward Density Optimization",
+        "abstract": "InfoFlow: Reinforcing Search Agent Via Reward Density Optimization Reinforcement Learning with Verifiable Rewards (RLVR) is a promising approach\nfor enhancing agentic deep search. However, its application is often hindered\nby low \\textbf{Reward Density} in deep search scenarios, where agents expend\nsignificant exploratory costs for infrequent and often null final rewards. In\nthis paper, we formalize this challenge as the \\textbf{Reward Density\nOptimization} problem, which aims to improve the reward obtained per unit of\nexploration cost. This paper introduce \\te",
+        "categories": "cs.CL, cs.AI",
+        "published": "2025-10-30T15:03:21Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.26575v1",
+        "search_score": 0.08930277824401855
+      },
+      "relevance_score": 0.08930277824401855,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.20408v1",
+        "title": "Balancing Specialization and Centralization: A Multi-Agent Reinforcement\n  Learning Benchmark for Sequential Industrial Control",
+        "abstract": "Balancing Specialization and Centralization: A Multi-Agent Reinforcement\n  Learning Benchmark for Sequential Industrial Control Autonomous control of multi-stage industrial processes requires both local\nspecialization and global coordination. Reinforcement learning (RL) offers a\npromising approach, but its industrial adoption remains limited due to\nchallenges such as reward design, modularity, and action space management. Many\nacademic benchmarks differ markedly from industrial control problems, limiting\ntheir transferability to real-world applications. This study introduces an\nenhanced industry-inspired benchmark enviro",
+        "categories": "cs.LG, cs.AI, cs.MA, cs.SY, eess.SY",
+        "published": "2025-10-23T10:21:54Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.20408v1",
+        "search_score": 0.08151876926422119
+      },
+      "relevance_score": 0.08151876926422119,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.24272v1",
+        "title": "Survey and Tutorial of Reinforcement Learning Methods in Process Systems\n  Engineering",
+        "abstract": "Survey and Tutorial of Reinforcement Learning Methods in Process Systems\n  Engineering Sequential decision making under uncertainty is central to many Process\nSystems Engineering (PSE) challenges, where traditional methods often face\nlimitations related to controlling and optimizing complex and stochastic\nsystems. Reinforcement Learning (RL) offers a data-driven approach to derive\ncontrol policies for such challenges. This paper presents a survey and tutorial\non RL methods, tailored for the PSE community. We deliver a tutorial on RL,\ncovering fundamental concepts and key algorithm",
+        "categories": "eess.SY, cs.AI, cs.SY",
+        "published": "2025-10-28T10:31:12Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.24272v1",
+        "search_score": 0.07865875959396362
+      },
+      "relevance_score": 0.07865875959396362,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    },
+    {
+      "paper": {
+        "id": "2510.23049v1",
+        "title": "Advantage Shaping as Surrogate Reward Maximization: Unifying Pass@K\n  Policy Gradients",
+        "abstract": "Advantage Shaping as Surrogate Reward Maximization: Unifying Pass@K\n  Policy Gradients This note reconciles two seemingly distinct approaches to policy gradient\noptimization for the Pass@K objective in reinforcement learning with verifiable\nrewards: (1) direct REINFORCE-style methods, and (2) advantage-shaping\ntechniques that directly modify GRPO. We show that these are two sides of the\nsame coin. By reverse-engineering existing advantage-shaping algorithms, we\nreveal that they implicitly optimize surrogate rewards. We specifically\ninterpret practical ``hard-example up-weighting''",
+        "categories": "cs.LG, cs.AI",
+        "published": "2025-10-27T06:24:56Z",
+        "pdf_url": "http://arxiv.org/pdf/2510.23049v1",
+        "search_score": 0.07543802261352539
+      },
+      "relevance_score": 0.07543802261352539,
+      "justification": "Using search similarity score (fine-tuned model not available)"
+    }
+  ],
+  "formatted_output": "# Paper Recommendations for: reinforcement learning\n\nFound 10 relevant papers\n\n## 1. Confounding Robust Deep Reinforcement Learning: A Causal Approach\n**Relevance Score:** 0.430\n**Categories:** c, s, ., A, I\n**Published:** 2025-10-24T02:58:01Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Confounding Robust Deep Reinforcement Learning: A Causal Approach A key task in Artificial Intelligence is learning effective policies for\ncontrolling agents in unknown environments to optimize perfor...\n---\n## 2. Causal Deep Q Network\n**Relevance Score:** 0.226\n**Categories:** c, s, ., A, I\n**Published:** 2025-10-27T15:28:17Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Causal Deep Q Network Deep Q Networks (DQN) have shown remarkable success in various reinforcement\nlearning tasks. However, their reliance on associative learning often leads to\nthe acquisition of spu...\n---\n## 3. Hybrid DQN-TD3 Reinforcement Learning for Autonomous Navigation in\n  Dynamic Environments\n**Relevance Score:** 0.197\n**Categories:** c, s, ., R, O, ,,  , c, s, ., A, I, ,,  , c, s, ., L, G\n**Published:** 2025-10-30T16:12:01Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Hybrid DQN-TD3 Reinforcement Learning for Autonomous Navigation in\n  Dynamic Environments This paper presents a hierarchical path-planning and control framework that\ncombines a high-level Deep Q-Netwo...\n---\n## 4. Off-policy Reinforcement Learning with Model-based Exploration\n  Augmentation\n**Relevance Score:** 0.176\n**Categories:** c, s, ., A, I\n**Published:** 2025-10-29T13:53:52Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Off-policy Reinforcement Learning with Model-based Exploration\n  Augmentation Exploration is fundamental to reinforcement learning (RL), as it determines\nhow effectively an agent discovers and exploit...\n---\n## 5. Computational Hardness of Reinforcement Learning with Partial\n  $q^\u03c0$-Realizability\n**Relevance Score:** 0.174\n**Categories:** c, s, ., A, I, ,,  , c, s, ., C, C, ,,  , c, s, ., L, G, ,,  , 6, 8, Q, 1, 7,  , (, P, r, i, m, a, r, y, ),  , 6, 8, T, 0, 5, ,,  , 6, 8, T, 4, 2,  , (, S, e, c, o, n, d, a, r, y, ), ,,  , F, ., 2, ., 2, ;,  , I, ., 2, ., 6, ;,  , I, ., 2, ., 8\n**Published:** 2025-10-24T01:18:49Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Computational Hardness of Reinforcement Learning with Partial\n  $q^\u03c0$-Realizability This paper investigates the computational complexity of reinforcement\nlearning in a novel linear function approximat...\n---\n## 6. Sample-efficient and Scalable Exploration in Continuous-Time RL\n**Relevance Score:** 0.132\n**Categories:** c, s, ., L, G, ,,  , c, s, ., A, I, ,,  , c, s, ., R, O\n**Published:** 2025-10-28T14:54:12Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Sample-efficient and Scalable Exploration in Continuous-Time RL Reinforcement learning algorithms are typically designed for discrete-time\ndynamics, even though the underlying real-world control syste...\n---\n## 7. InfoFlow: Reinforcing Search Agent Via Reward Density Optimization\n**Relevance Score:** 0.089\n**Categories:** c, s, ., C, L, ,,  , c, s, ., A, I\n**Published:** 2025-10-30T15:03:21Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** InfoFlow: Reinforcing Search Agent Via Reward Density Optimization Reinforcement Learning with Verifiable Rewards (RLVR) is a promising approach\nfor enhancing agentic deep search. However, its applica...\n---\n## 8. Balancing Specialization and Centralization: A Multi-Agent Reinforcement\n  Learning Benchmark for Sequential Industrial Control\n**Relevance Score:** 0.082\n**Categories:** c, s, ., L, G, ,,  , c, s, ., A, I, ,,  , c, s, ., M, A, ,,  , c, s, ., S, Y, ,,  , e, e, s, s, ., S, Y\n**Published:** 2025-10-23T10:21:54Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Balancing Specialization and Centralization: A Multi-Agent Reinforcement\n  Learning Benchmark for Sequential Industrial Control Autonomous control of multi-stage industrial processes requires both loc...\n---\n## 9. Survey and Tutorial of Reinforcement Learning Methods in Process Systems\n  Engineering\n**Relevance Score:** 0.079\n**Categories:** e, e, s, s, ., S, Y, ,,  , c, s, ., A, I, ,,  , c, s, ., S, Y\n**Published:** 2025-10-28T10:31:12Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Survey and Tutorial of Reinforcement Learning Methods in Process Systems\n  Engineering Sequential decision making under uncertainty is central to many Process\nSystems Engineering (PSE) challenges, whe...\n---\n## 10. Advantage Shaping as Surrogate Reward Maximization: Unifying Pass@K\n  Policy Gradients\n**Relevance Score:** 0.075\n**Categories:** c, s, ., L, G, ,,  , c, s, ., A, I\n**Published:** 2025-10-27T06:24:56Z\n**Why it's relevant:** Using search similarity score (fine-tuned model not available)\n**Abstract preview:** Advantage Shaping as Surrogate Reward Maximization: Unifying Pass@K\n  Policy Gradients This note reconciles two seemingly distinct approaches to policy gradient\noptimization for the Pass@K objective i...\n---",
+  "total_candidates": 50
+}

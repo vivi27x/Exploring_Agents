@@ -1,0 +1,42 @@
+[
+  {
+    "test_case": "few-shot learning natural language processing",
+    "status": "success",
+    "paper_count": 10,
+    "sufficient_papers": true,
+    "domain_match": true,
+    "avg_relevance": 0.0055544435977935794,
+    "planned_domains": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "test_case": "computer vision object detection",
+    "status": "success",
+    "paper_count": 10,
+    "sufficient_papers": true,
+    "domain_match": true,
+    "avg_relevance": -0.023349589109420775,
+    "planned_domains": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG",
+      "stat.ML"
+    ]
+  },
+  {
+    "test_case": "reinforcement learning deep Q networks",
+    "status": "success",
+    "paper_count": 10,
+    "sufficient_papers": true,
+    "domain_match": true,
+    "avg_relevance": 0.052892476320266724,
+    "planned_domains": [
+      "cs.AI",
+      "cs.LG",
+      "cs.NE"
+    ]
+  }
+]

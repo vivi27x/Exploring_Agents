@@ -1,6 +1,12 @@
 import json
 import numpy as np
 from typing import List, Dict
+import os
+import sys
+# Add the project root directory to the Python path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+print(f"Added to Python path: {project_root}")
 from main import PaperRecommendationAgent
 
 def evaluate_agent():

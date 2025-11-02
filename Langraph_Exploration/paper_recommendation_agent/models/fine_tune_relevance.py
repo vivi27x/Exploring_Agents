@@ -7,6 +7,13 @@ from peft import LoraConfig, get_peft_model
 from datasets import Dataset
 import json
 import numpy as np
+import sys 
+import os
+# Add the project root directory to the Python path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+print(f"Added to Python path: {project_root}")
+
 from utils.helpers import load_config
 
 def load_training_data():
@@ -39,7 +46,7 @@ def fine_tune_model():
     config = load_config()
     
     # Load model and tokenizer
-    model_name = "microsoft/deberta-v3-small"
+    model_name = "roberta-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(
         model_name, 
@@ -86,7 +93,7 @@ def fine_tune_model():
         per_device_eval_batch_size=8,
         num_train_epochs=5,
         weight_decay=0.01,
-        evaluation_strategy="epoch",
+        eval_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",

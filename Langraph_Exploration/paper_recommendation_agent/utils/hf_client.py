@@ -1,43 +1,53 @@
 import os
 import requests
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List
 from utils.helpers import load_config
-
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+import dotenv
+dotenv.load_dotenv()
 
 class HuggingFaceClient:
     def __init__(self):
-        self.config = load_config()
-        self.api_key = self.config['huggingface'].get('api_key') or os.getenv('HUGGINGFACE_API_KEY')
-        self.base_url = "https://api-inference.huggingface.co/models"
+        self.api_key = os.getenv('HF_TOKEN')
+        if not self.api_key:
+            logger.warning("HF_TOKEN environment variable not set.")
+            
+        # This is the single, correct endpoint for the chat router
+        self.base_url = "https://router.huggingface.co/v1/chat/completions"
         
-    def generate_text(self, model: str, prompt: str, max_tokens: int = 512) -> str:
-        """Generate text using Hugging Face Inference API"""
-        url = f"{self.base_url}/{model}"
+    def chat_completion(self, model: str, messages: List[Dict[str, str]], max_tokens: int = 512) -> str:
+        """
+        Generate a chat completion using the HF Chat Completions API.
+        """
+        if not self.api_key:
+            logger.error("API key is not available.")
+            return ""
+
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
         
+        # Payload matches the format from your first script
         payload = {
-            "inputs": prompt,
-            "parameters": {
-                "max_new_tokens": max_tokens,
-                "temperature": 0.7,
-                "do_sample": True,
-                "return_full_text": False
-            }
+            "model": model,
+            "messages": messages,
+            "max_tokens": max_tokens,
+            "temperature": 0.7  # You can add other parameters here
         }
         
         try:
-            response = requests.post(url, headers=headers, json=payload, timeout=30)
-            response.raise_for_status()
+            response = requests.post(self.base_url, headers=headers, json=payload, timeout=30)
+            response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
             
             result = response.json()
             
-            if isinstance(result, list) and len(result) > 0:
-                return result[0].get('generated_text', '')
+            # The response structure is {"choices": [{"message": {"content": "..."}}]}
+            if result.get("choices") and len(result["choices"]) > 0:
+                message_content = result["choices"][0].get("message", {}).get("content", "")
+                return message_content
             else:
                 logger.error(f"Unexpected response format: {result}")
                 return ""
@@ -49,24 +59,25 @@ class HuggingFaceClient:
             logger.error(f"Unexpected error: {e}")
             return ""
 
-    def chat_completion(self, model: str, messages: list, max_tokens: int = 512) -> str:
-        """Simulate chat completion using text generation"""
-        # Convert messages to prompt
-        prompt = self._messages_to_prompt(messages)
-        return self.generate_text(model, prompt, max_tokens)
+# --- Example Usage ---
+if __name__ == "__main__":
+    # Make sure to set your HF_TOKEN in your environment
+    # export HF_TOKEN='your_hf_token_here'
     
-    def _messages_to_prompt(self, messages: list) -> str:
-        """Convert chat messages to a single prompt"""
-        prompt = ""
-        for message in messages:
-            role = message['role']
-            content = message['content']
-            if role == 'system':
-                prompt += f"System: {content}\n\n"
-            elif role == 'user':
-                prompt += f"User: {content}\n\n"
-            elif role == 'assistant':
-                prompt += f"Assistant: {content}\n\n"
+    client = HuggingFaceClient()
+    
+    if client.api_key:
+        messages = [
+            {
+                "role": "user",
+                "content": "What is the capital of France?"
+            }
+        ]
+        model_name = "meta-llama/Llama-3.1-8B-Instruct:novita"
         
-        prompt += "Assistant:"
-        return prompt
+        response_text = client.chat_completion(model_name, messages)
+        
+        if response_text:
+            print(f"Assistant: {response_text}")
+        else:
+            print("Failed to get a response.")

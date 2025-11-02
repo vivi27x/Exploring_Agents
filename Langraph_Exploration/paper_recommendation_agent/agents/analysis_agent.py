@@ -12,7 +12,11 @@ class AnalysisAgent:
         
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(model_path)
-            self.model = AutoModelForSequenceClassification.from_pretrained(model_path)
+            self.model = AutoModelForSequenceClassification.from_pretrained(
+                model_path,
+                num_labels=1,  # Ensure single output for regression
+                problem_type="regression"
+            )
             self.model.eval()
             logger.info("Loaded fine-tuned relevance model")
         except Exception as e:
